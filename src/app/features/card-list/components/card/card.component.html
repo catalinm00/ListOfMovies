@@ -1,1 +1,4 @@
-
+<div class="flex-col w-full rounded-md bg-slate-300" *ngIf="movie">
+    <img class="w-100 h-70 rounded-t-md" src={{getMoviePosterPath(movie.poster_path)}} alt="">
+    <span class="flex flex-wrap p-2 h-fit w-full text-lg font-semibold">{{movie.title}}</span>
+</div>

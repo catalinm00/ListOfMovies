@@ -1,1 +1,5 @@
-<p>list works!</p>
+<div class="flex flex-row p-4 items-center justify-around h-screen w-screen flex-wrap" *ngIf="movies">
+    <div class="min-h-max w-1/2 md:w-1/4 lg:w-1/5 p-3" *ngFor="let movie of movies">
+        <app-card [movie]="movie"></app-card>
+    </div>
+</div>
