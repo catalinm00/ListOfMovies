@@ -2,7 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Movie } from 'src/app/core/models/movie';
-import { MovieService } from './../../shared/services/movie.service';
+import { MovieService } from 'src/app/shared/services/movie/movie.service';
 import { getLanguages, getMoviePosterPath } from './../../core/utils/functions';
 
 @Component({

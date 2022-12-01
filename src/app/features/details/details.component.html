@@ -39,7 +39,7 @@
     <h1 class="my-3 text-4xl lg:text-6xl font-bold">{{ movie.title }}</h1>
     <span class="flex flex-col flex-wrap text-2xl lg:text-4xl space-y-4">
       <p><b>Plot:</b><br />{{ movie.overview }}</p>
-      <p><b>Release date:</b><br />{{ movie.release_date.toLocaleString() | dateFormat}}</p>
+      <p><b>Release date:</b><br />{{ movie.release_date.toLocaleString() | date: "dd/MM/yyyy"  }} </p>
       <p><b>Language:</b><br />{{ getLanguages(movie) }}</p>
     </span>
   </div>
