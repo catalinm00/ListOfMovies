@@ -1,1 +1,39 @@
-<p>navbar works!</p>
+<div
+  class="flex flex-col md:flex-row items-start md:justify-between w-full px-6 py-3 space-y-2 md:space-y-0 bg-[#000]"
+>
+  <span class="flex flex-row justify-center">
+    <a class="flex h-full m-1 w-fit items-center" href=""
+      ><span class="text-base text-white font-semibold">Home</span></a
+    >
+    <a class="flex h-full m-1 w-fit items-center" href=""
+      ><span class="text-base text-white font-semibold">Favourites</span></a
+    >
+  </span>
+
+  <div class="flex items-center w-full md:w-auto">
+    <input
+      [(ngModel)]="search"
+      class="p-2 h-8 w-full rounded-l-lg focus:outline-none"
+      type="text"
+      placeholder="Search a movie"
+    />
+    <button
+      (click)="searchMovies()"
+      class="flex items-center justify-center h-8 w-10 z-50 rounded-r-lg bg-blue-600"
+    >
+      <span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M10.25 2a8.25 8.25 0 105.28 14.59l5.69 5.69a.75.75 0 101.06-1.06l-5.69-5.69A8.25 8.25 0 0010.25 2zM3.5 10.25a6.75 6.75 0 1113.5 0 6.75 6.75 0 01-13.5 0z"
+          ></path>
+        </svg>
+      </span>
+    </button>
+  </div>
+</div>
