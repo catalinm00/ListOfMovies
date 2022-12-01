@@ -1,1 +1,52 @@
-<p>details works!</p>
+<div class="absolute md:relative flex px-2 items-center w-full h-12 bg-black opacity-40 md:opacity-100 justify-between">
+  <button>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      class="h-10 w-10 hover:fill-white hover:opacity-100"
+    >
+      <polyline
+        points="10 5 3 12 10 19"
+        fill="none"
+        stroke="#fff"
+        stroke-miterlimit="10"
+      />
+      <line
+        x1="3"
+        y1="12"
+        x2="22"
+        y2="12"
+        fill="none"
+        stroke="#fff"
+        stroke-miterlimit="10"
+      />
+    </svg>
+  </button>
+  <button>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-10 w-10 hover:fill-white hover:opacity-100">
+      <path
+        d="M12,8,10.7,6.8a4.7,4.7,0,0,0-6.4,0,4.7,4.7,0,0,0,0,6.4L12,21l7.7-7.8a4.7,4.7,0,0,0,0-6.4,4.7,4.7,0,0,0-6.4,0Z"
+        fill="none"
+        stroke="#fff"
+      />
+    </svg>
+  </button>
+</div>
+<div class="flex flex-col-reverse md:flex-row w-full h-full" *ngIf="movie">
+  <div
+    class="flex flex-col items-start justify-start w-full md:w-1/2 p-4 lg:p-14 space-y-4"
+  >
+    <h1 class="my-3 text-4xl lg:text-6xl font-bold">{{ movie.title }}</h1>
+    <span class="flex flex-col flex-wrap text-2xl lg:text-4xl space-y-4">
+      <p><b>Plot:</b><br />{{ movie.overview }}</p>
+      <p><b>Release date:</b><br />{{ movie.release_date.toLocaleString() | dateFormat}}</p>
+      <p><b>Language:</b><br />{{ getLanguages(movie) }}</p>
+    </span>
+  </div>
+
+  <img
+    [src]="getPoster(movie.poster_path)"
+    alt="poster"
+    class="w-100 md:w-1/2"
+  />
+</div>

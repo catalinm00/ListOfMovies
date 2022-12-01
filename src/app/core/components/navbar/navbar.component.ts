@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { MovieService } from './../../../shared/services/movie.service';
+import { Router } from '@angular/router';
+import { Movie } from '../../models/movie';
 
 @Component({
   selector: 'app-navbar',
@@ -7,14 +9,19 @@ import { MovieService } from './../../../shared/services/movie.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-  search = '';
-  constructor(public service: MovieService) {}
+  title = '';
+  constructor(private service: MovieService, private router: Router) {}
 
   searchMovies() {
-    console.log(this.search);
-
-    this.service
-      .searchMovie(this.search)
-      .subscribe((resp) => this.service.moviesSubject.next(resp));
+    this.router.navigate(['']);
+    if (this.title.trim().length > 0) {
+      this.router.navigate(['']);
+      this.service
+        .searchMovie(this.title)
+        .subscribe((resp) => this.sendMovies(resp));
+    }
+  }
+  sendMovies(movies: Movie[]) {
+    this.service.moviesSubject.next(movies);
   }
 }

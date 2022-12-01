@@ -1,28 +1,36 @@
 <div
-  class="flex flex-col md:flex-row items-start md:justify-between w-full px-6 py-3 space-y-2 md:space-y-0 bg-[#000]"
+  class="flex flex-col sticky top-0 md:flex-row items-start md:justify-between w-full px-3 md:px-6 py-3 space-y-2 md:space-y-0 bg-[#000]"
 >
   <span class="flex flex-row justify-center">
     <a class="flex h-full m-1 w-fit items-center" href=""
-      ><span class="text-base text-white font-semibold">Home</span></a
+      ><span
+        class="text-base text-white hover:font-semibold focus:font-semibold"
+        >Home</span
+      ></a
     >
     <a class="flex h-full m-1 w-fit items-center" href=""
-      ><span class="text-base text-white font-semibold">Favourites</span></a
+      ><span
+        class="text-base text-white hover:font-semibold focus:font-semibold"
+        >Favourites</span
+      ></a
     >
   </span>
 
   <div class="flex items-center w-full md:w-auto">
     <input
-      [(ngModel)]="search"
+      [(ngModel)]="title"
+      (keydown.enter)="searchMovies()"
       class="p-2 h-8 w-full rounded-l-lg focus:outline-none"
       type="text"
       placeholder="Search a movie"
     />
     <button
       (click)="searchMovies()"
-      class="flex items-center justify-center h-8 w-10 z-50 rounded-r-lg bg-blue-600"
+      class="flex items-center justify-center h-8 w-10 z-50 rounded-r-lg bg-blue-600 hover:bg-sky-500"
     >
       <span>
         <svg
+          class="hover:fill-white"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           width="24"

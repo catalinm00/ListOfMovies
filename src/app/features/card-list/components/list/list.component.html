@@ -1,5 +1,5 @@
-<div class="flex flex-grow flex-row flex-wrap p-4 items-center justify-around h-full w-full bg-[#1d1d1d]" *ngIf="movies">
-    <div class="min-h-max w-1/2 md:w-1/4 lg:w-1/5 p-3" *ngFor="let movie of movies">
+<div class="flex flex-grow flex-row flex-wrap p-4 items-center justify-around h-100 w-full bg-[#111111]" *ngIf="movies">
+    <div class="min-h-max w-1/2 md:w-1/4 lg:w-1/5 p-1 md:p-3" *ngFor="let movie of movies">
         <app-card [movie]="movie"></app-card>
     </div>
 </div>

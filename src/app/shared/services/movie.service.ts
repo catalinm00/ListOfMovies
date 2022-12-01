@@ -12,7 +12,7 @@ export class MovieService {
   moviesSubject: Subject<Movie[]> = new Subject<Movie[]>();
 
   constructor(public http: HttpClient) {}
-  
+
   searchMovie(title: string, page = 1): Observable<Movie[]> {
     return this.http
       .get<Movie[]>(

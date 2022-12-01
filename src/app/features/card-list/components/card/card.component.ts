@@ -1,15 +1,24 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Movie } from './../../../../core/models/movie';
+import { getMoviePosterPath } from 'src/app/core/utils/functions';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  styleUrls: ['./card.component.scss'],
 })
 export class CardComponent {
+  defaultImage = 'assets/Image-Not-Available.png';
   @Input() movie!: Movie;
-  getMoviePosterPath(path: string) {
-    if (path == null) return 'assets/Image-Not-Available.png';
-    return `https://image.tmdb.org/t/p/original/${path}`;
+
+  constructor(private router: Router) {}
+
+  getPoster(path: string){
+    return getMoviePosterPath(path);
+  }
+
+  openDetailsOf(movie: Movie) {
+    this.router.navigate(['details', movie.id]);
   }
 }
