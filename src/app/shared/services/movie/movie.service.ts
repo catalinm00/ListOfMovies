@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, map, Observable, tap } from 'rxjs';
 import { Movie } from 'src/app/core/models/movie';
 
 @Injectable({
@@ -9,16 +9,27 @@ import { Movie } from 'src/app/core/models/movie';
 export class MovieService {
   private _apiKey = 'ca4ba7f40425f8071ed786ec5be39ac7';
   private _url = 'https://api.themoviedb.org/3/';
-  moviesSubject: Subject<Movie[]> = new Subject<Movie[]>();
+  private moviesSubject = new BehaviorSubject<Movie[]>([]);
+  private maxPageNumber = new BehaviorSubject<number>(1);
+  private movieTitle = '';
+  constructor(public http: HttpClient) {
+    this.findPopularMovies().subscribe((res) => this.moviesSubject.next(res));
+  }
 
-  constructor(public http: HttpClient) {}
-
-  searchMovie(title: string, page = 1): Observable<Movie[]> {
+  searchMovie(title: string = this.movieTitle, page = 1): Observable<Movie[]> {
+    if (title !== '') this.setMovieTitle(title);
     return this.http
       .get<Movie[]>(
         `${this._url}search/movie?api_key=${this._apiKey}&language=en-US&query=${title}&page=${page}&include_adult=false`
       )
-      .pipe(map((resp: any) => resp.results));
+      .pipe(
+        tap((resp: any) => {
+          this.setMaxPageNumber(resp.total_pages);
+          console.log(this.getMaxPageNumber());
+        }),
+        map((resp: any) => resp.results),
+        tap((movies) => this.setMovies(movies))
+      );
   }
 
   findById(id: number): Observable<Movie> {
@@ -38,5 +49,29 @@ export class MovieService {
   getMoviePosterPath(path: string) {
     if (path == null) return 'assets/Image-Not-Available.png';
     return `https://image.tmdb.org/t/p/original/${path}`;
+  }
+
+  getMovies() {
+    return this.moviesSubject.asObservable();
+  }
+
+  setMovies(movies: Movie[]) {
+    this.moviesSubject.next(movies);
+  }
+
+  getMaxPageNumber() {
+    return this.maxPageNumber.asObservable();
+  }
+
+  setMaxPageNumber(page: number) {
+    this.maxPageNumber.next(page);
+  }
+
+  getMovieTitle() {
+    return this.movieTitle;
+  }
+
+  setMovieTitle(title: string) {
+    this.movieTitle = title;
   }
 }

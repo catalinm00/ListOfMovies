@@ -18,10 +18,7 @@ export class NavbarComponent {
       this.router.navigate(['']);
       this.service
         .searchMovie(this.title)
-        .subscribe((resp) => this.sendMovies(resp));
+        .subscribe();
     }
-  }
-  sendMovies(movies: Movie[]) {
-    this.service.moviesSubject.next(movies);
   }
 }

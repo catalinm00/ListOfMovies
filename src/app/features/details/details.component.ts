@@ -1,5 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { faStar } from '@fortawesome/free-regular-svg-icons';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 import { Movie } from 'src/app/core/models/movie';
 import { MovieService } from 'src/app/shared/services/movie/movie.service';
@@ -13,8 +15,9 @@ import { getLanguages, getMoviePosterPath } from './../../core/utils/functions';
 export class DetailsComponent implements OnDestroy {
   subscription!: Subscription;
   movie!: Movie;
-
-  constructor(private service: MovieService, private route: ActivatedRoute) {
+  arrowLeftIcon = faArrowLeft;
+  starIcon = faStar;
+  constructor(private service: MovieService, private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe((params: Params) => {
       this.subscription = this.service
         .findById(params['id'])
@@ -30,6 +33,10 @@ export class DetailsComponent implements OnDestroy {
 
   getLanguages(movie: Movie){
     return getLanguages(movie)
+  }
+
+  goBack(){
+    this.router.navigate(['']);
   }
 
   ngOnDestroy() {

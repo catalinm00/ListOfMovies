@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Movie } from './../../../../core/models/movie';
 import { getMoviePosterPath } from 'src/app/core/utils/functions';
@@ -7,6 +7,7 @@ import { getMoviePosterPath } from 'src/app/core/utils/functions';
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardComponent {
   defaultImage = 'assets/Image-Not-Available.png';

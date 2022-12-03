@@ -1,29 +1,13 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Movie } from './../../../../core/models/movie';
 import { MovieService } from 'src/app/shared/services/movie/movie.service';
-import { Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
 })
-export class ListComponent implements OnDestroy {
-  movies!: Movie[];
-  private popularMovies: Subscription;
-  private searchMovies: Subscription;
-
-  constructor(private service: MovieService) {
-    this.popularMovies = this.service
-      .findPopularMovies()
-      .subscribe((res) => (this.movies = res));
-    this.searchMovies = this.service.moviesSubject.subscribe(
-      (res) => (this.movies = res)
-    );
-  }
-
-  ngOnDestroy(): void {
-    this.popularMovies.unsubscribe();
-    this.searchMovies.unsubscribe();
-  }
+export class ListComponent {
+  @Input() movies!: Movie[];
 }

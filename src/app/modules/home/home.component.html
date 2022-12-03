@@ -1,2 +1,12 @@
-<app-navbar></app-navbar>
-<app-list></app-list>
+<div
+  class="flex flex-col flex-grow w-full h-full"
+  *ngIf="movies$ | async as movies"
+>
+  <app-list [movies]="movies"></app-list>
+  <div *ngIf="maxPages$ | async as maxPages">
+    <app-paginator
+      [maxPages]="maxPages"
+      (currentPageEmitter)="changeSearchPage($event)"
+    ></app-paginator>
+  </div>
+</div>

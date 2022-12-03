@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { CardListModule } from './features/card-list/card-list.module';
 import { DetailsModule } from './features/details/details.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeModule } from './modules/home/home.module';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { HomeModule } from './modules/home/home.module';
     CardListModule,
     DetailsModule,
     HomeModule,
+    FontAwesomeModule,
   ],
 })
 export class AppModule {}
