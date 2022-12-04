@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer components {
-  .selected {
+  .nav__item--selected {
     @apply text-2xl font-bold;
   }
 }

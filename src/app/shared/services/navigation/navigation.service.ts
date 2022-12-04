@@ -5,7 +5,6 @@ import { Router, NavigationEnd } from '@angular/router';
 @Injectable({ providedIn: 'root' })
 export class NavigationService {
   private history: string[] = [];
-
   constructor(private router: Router, private location: Location) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {

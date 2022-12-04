@@ -1,19 +1,20 @@
 <div
-  #navbar
+  #nav
   class="flex flex-col sticky top-0 z-50 md:flex-row items-start md:justify-between w-full px-3 md:px-6 py-3 space-y-2 md:space-y-0 bg-[#000]"
 >
-  <span #navbar_links class="flex flex-row justify-center">
+  <span class="flex flex-row justify-center">
     <a class="flex h-full m-1 w-fit items-center" [routerLink]="['']"
       ><span
-        class="text-base text-white hover:font-semibold focus:font-semibold"
-        routerLinkActive="selected"
+        #nav__item
         [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="nav__item--selected"
+        class="text-base text-white hover:font-semibold focus:font-semibold"
         >Home</span
       ></a
     >
     <a class="flex h-full m-1 w-fit items-center" [routerLink]="['/favourites']"
       ><span
-        routerLinkActive="selected"
+        routerLinkActive="nav__item--selected"
         class="text-base text-white hover:font-semibold focus:font-semibold"
         >Favourites</span
       ></a

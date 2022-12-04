@@ -16,7 +16,6 @@ import { CoreModule } from 'src/app/core/core.module';
 export class CardComponent {
   defaultImage = 'assets/Image-Not-Available.png';
   @Input() movie!: Movie;
-
   constructor(private router: Router) {}
 
   getPoster(path: string) {
