@@ -1,10 +1,14 @@
 # ListOfMovies
 
+Responsive web for searching movies in TMDB, showing their details and optionally, adding the desired ones to favourites.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.1.
 
 ## Development server
 
+IMPORTANT: First install node_modules using `npm install`.
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Alternatively run `ng serve -o` which opens the browser automatically.
 
 ## Code scaffolding
 
