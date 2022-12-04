@@ -25,7 +25,6 @@ export class MovieService {
       .pipe(
         tap((resp: any) => {
           this.setMaxPageNumber(resp.total_pages);
-          console.log(this.getMaxPageNumber());
         }),
         map((resp: any) => resp.results),
         tap((movies) => this.setMovies(movies))

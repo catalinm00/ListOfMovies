@@ -6,6 +6,7 @@ import { CardListModule } from './features/card-list/card-list.module';
 import { DetailsModule } from './features/details/details.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeModule } from './modules/home/home.module';
+import { FavouritesModule } from './modules/favourites/favourites.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +18,7 @@ import { HomeModule } from './modules/home/home.module';
     CardListModule,
     DetailsModule,
     HomeModule,
+    FavouritesModule,
     FontAwesomeModule,
   ],
 })

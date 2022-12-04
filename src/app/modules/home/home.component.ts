@@ -16,9 +16,7 @@ export class HomeComponent {
     this.maxPages$ = this.service.getMaxPageNumber();
   }
 
-  changeSearchPage(page: number){
-    console.log("cambio a pagina: ",page);
+  changeSearchPage(page: number) {
     this.service.searchMovie(this.service.getMovieTitle(), page).subscribe();
-    
   }
 }
