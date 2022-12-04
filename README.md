@@ -6,7 +6,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
+IMPORTANT: First install node_modules using `npm install`.
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Alternatively run `ng serve -o` which opens the browser automatically.
 
 ## Code scaffolding
 
