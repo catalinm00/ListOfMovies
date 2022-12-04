@@ -1,10 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CoreModule } from 'src/app/core/core.module';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { CardComponent } from '../card/card.component';
 import { Movie } from './../../../../core/models/movie';
-import { MovieService } from 'src/app/shared/services/movie/movie.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-list',
+  standalone: true,
+  imports: [CardComponent,CoreModule, SharedModule],
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
 })
