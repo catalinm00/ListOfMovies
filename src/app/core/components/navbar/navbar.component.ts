@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { MovieService } from 'src/app/shared/services/movie/movie.service';
 import { Router } from '@angular/router';
-import { Movie } from '../../models/movie';
 
 @Component({
   selector: 'app-navbar',
@@ -16,9 +15,7 @@ export class NavbarComponent {
     this.router.navigate(['']);
     if (this.title.trim().length > 0) {
       this.router.navigate(['']);
-      this.service
-        .searchMovie(this.title)
-        .subscribe();
+      this.service.searchMovie(this.title).subscribe();
     }
   }
 }

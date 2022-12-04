@@ -6,7 +6,13 @@ import { HomeComponent } from './modules/home/home.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'details/:id', component: DetailsComponent },
-  { path: 'favourites', loadChildren: () => import('./modules/favourites/favourites.module').then(m => m.FavouritesModule) },
+  {
+    path: 'favourites',
+    loadChildren: () =>
+      import('./modules/favourites/favourites.module').then(
+        (m) => m.FavouritesModule
+      ),
+  },
 ];
 
 @NgModule({

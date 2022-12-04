@@ -7,7 +7,7 @@ import { Movie } from './../../../../core/models/movie';
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [CardComponent,CoreModule, SharedModule],
+  imports: [CardComponent, CoreModule, SharedModule],
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
 })

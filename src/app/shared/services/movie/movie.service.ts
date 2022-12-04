@@ -30,7 +30,7 @@ export class MovieService {
           this.setMaxPageNumber(resp.total_pages);
         }),
         map((resp: any) => resp.results),
-        tap((movies) => this.setMovies(movies))
+        tap(movies => this.setMovies(movies))
       );
   }
 
@@ -47,7 +47,7 @@ export class MovieService {
       )
       .pipe(
         map((resp: any) => resp.results),
-        tap((movies) => this.setMovies(movies))
+        tap(movies => this.setMovies(movies))
       );
   }
 

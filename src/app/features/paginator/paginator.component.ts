@@ -12,7 +12,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 export class PaginatorComponent {
   @Input() maxPages!: number;
   @Output() currentPageChange = new EventEmitter<number>();
-  @Input() currentPage!:number;
+  @Input() currentPage!: number;
   leftArrow = faArrowLeft;
   rightArrow = faArrowRight;
 

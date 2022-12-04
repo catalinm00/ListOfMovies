@@ -8,6 +8,6 @@ import { FavouritesRoutingModule } from './favourites-routing.module';
 @NgModule({
   declarations: [FavouritesComponent],
   imports: [CoreModule, SharedModule, ListComponent, FavouritesRoutingModule],
-  exports: [FavouritesComponent]
+  exports: [FavouritesComponent],
 })
 export class FavouritesModule {}

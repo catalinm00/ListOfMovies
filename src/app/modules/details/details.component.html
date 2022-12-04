@@ -1,35 +1,30 @@
 <div
   class="flex flex-col-reverse md:flex-row w-full h-full"
-  *ngIf="movie$ | async as movie"
->
+  *ngIf="movie$ | async as movie">
   <div
-    class="flex flex-col items-start justify-start w-full md:w-1/2 p-4 lg:p-14 space-y-4"
-  >
+    class="flex flex-col items-start justify-start w-full md:w-1/2 p-4 lg:p-14 space-y-4">
     <h1 class="my-3 text-4xl lg:text-6xl font-bold">{{ movie.title }}</h1>
     <span class="flex flex-col flex-wrap w-full text-2xl lg:text-4xl space-y-4">
-      <p><b>Plot:</b><br />{{ movie.overview ? movie.overview : "N/A" }}</p>
+      <p><b>Plot:</b><br />{{ movie.overview ? movie.overview : 'N/A' }}</p>
       <p>
         <b>Release date:</b><br />{{
           movie.release_date
-            ? (movie.release_date.toLocaleString() | date : "dd/MM/yyyy")
-            : "N/A"
+            ? (movie.release_date.toLocaleString() | date : 'dd/MM/yyyy')
+            : 'N/A'
         }}
       </p>
       <p><b>Language:</b><br />{{ getLanguages(movie) }}</p>
       <span
-        class="flex flex-row w-full justify-between md:justify-start md:space-x-10 text-xl"
-      >
+        class="flex flex-row w-full justify-between md:justify-start md:space-x-10 text-xl">
         <button
           class="py-1 px-2 rounded-md outline outline-1"
-          (click)="goBack()"
-        >
+          (click)="goBack()">
           <fa-icon [icon]="arrowLeftIcon"></fa-icon> Go Back
         </button>
         <div *ngIf="!isFavourite(movie); else remove">
           <button
             class="py-1 px-2 rounded-md outline outline-1"
-            (click)="addToFavourites(movie)"
-          >
+            (click)="addToFavourites(movie)">
             <fa-icon [icon]="starIcon"></fa-icon> Favourites
           </button>
         </div>
@@ -39,13 +34,11 @@
   <img
     [src]="getPoster(movie.poster_path)"
     alt="poster"
-    class="w-100 md:w-1/2"
-  />
+    class="w-100 md:w-1/2" />
   <ng-template #remove>
     <button
       class="py-1 px-2 rounded-md outline outline-1"
-      (click)="removeFromFavourites(movie)"
-    >
+      (click)="removeFromFavourites(movie)">
       <fa-icon [icon]="xMark"></fa-icon> Remove
     </button>
   </ng-template>

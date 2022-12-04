@@ -35,7 +35,7 @@ export class FavouritesService {
   }
 
   private parseToMovies(val: string[]) {
-    const movies = []
+    const movies = [];
     for (const str of val) movies.push(JSON.parse(str));
     return movies;
   }

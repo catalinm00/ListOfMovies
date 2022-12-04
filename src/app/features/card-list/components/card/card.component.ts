@@ -8,7 +8,7 @@ import { CoreModule } from 'src/app/core/core.module';
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [CoreModule,SharedModule],
+  imports: [CoreModule, SharedModule],
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -19,7 +19,7 @@ export class CardComponent {
 
   constructor(private router: Router) {}
 
-  getPoster(path: string){
+  getPoster(path: string) {
     return getMoviePosterPath(path);
   }
 

@@ -7,6 +7,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @NgModule({
   declarations: [],
   imports: [CommonModule, FormsModule, LazyLoadImageModule, FontAwesomeModule],
-  exports: [CommonModule, FormsModule, LazyLoadImageModule, FontAwesomeModule,],
+  exports: [CommonModule, FormsModule, LazyLoadImageModule, FontAwesomeModule],
 })
 export class SharedModule {}
