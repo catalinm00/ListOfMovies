@@ -1,13 +1,15 @@
 <div
   class="flex flex-col flex-grow w-full h-full"
-  *ngIf="movies$ | async as movies">
+  *ngIf="movies$ | async as movies"
+>
   <app-list [movies]="movies"></app-list>
   <div *ngIf="maxPages$ | async as maxPages">
     <div *ngIf="currentPage$ | async as currentPage">
       <app-paginator
         [currentPage]="currentPage"
         [maxPages]="maxPages"
-        (currentPageChange)="changeSearchPage($event)"></app-paginator>
+        (currentPageChange)="changeSearchPage($event)"
+      ></app-paginator>
     </div>
   </div>
 </div>

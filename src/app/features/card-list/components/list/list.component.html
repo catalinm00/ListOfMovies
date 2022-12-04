@@ -1,15 +1,18 @@
 <div
   class="flex flex-grow flex-row flex-wrap p-4 items-center justify-center h-full min-h-screen w-full bg-[#111111]"
-  *ngIf="movies.length !== 0; else void">
+  *ngIf="movies.length !== 0; else void"
+>
   <div
     class="min-h-max w-1/2 md:w-1/4 lg:w-1/5 p-1 md:p-3"
-    *ngFor="let movie of movies">
+    *ngFor="let movie of movies"
+  >
     <app-card [movie]="movie"></app-card>
   </div>
 </div>
 <ng-template #void>
   <div
-    class="flex flex-grow flex-row flex-wrap p-4 items-center justify-center h-full min-h-screen w-full bg-[#111111]">
+    class="flex flex-grow flex-row flex-wrap p-4 items-center justify-center h-full min-h-screen w-full bg-[#111111]"
+  >
     <span class="font-light italic text-4xl text-white"
       >There aren´t any movies to show right now...</span
     >
