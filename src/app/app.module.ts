@@ -3,8 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { CardListModule } from './features/card-list/card-list.module';
-import { DetailsModule } from './features/details/details.module';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { DetailsModule } from './modules/details/details.module';
 import { HomeModule } from './modules/home/home.module';
 import { FavouritesModule } from './modules/favourites/favourites.module';
 
@@ -19,7 +18,7 @@ import { FavouritesModule } from './modules/favourites/favourites.module';
     DetailsModule,
     HomeModule,
     FavouritesModule,
-    FontAwesomeModule,
+    
   ],
 })
 export class AppModule {}

@@ -11,19 +11,22 @@ export class MovieService {
   private _url = 'https://api.themoviedb.org/3/';
   private moviesSubject = new BehaviorSubject<Movie[]>([]);
   private maxPageNumber = new BehaviorSubject<number>(1);
+  private currentPageNumber = new BehaviorSubject<number>(1);
   private movieTitle = '';
-  constructor(public http: HttpClient) {
-    this.findPopularMovies().subscribe((res) => this.moviesSubject.next(res));
-  }
+  constructor(public http: HttpClient) {}
 
   searchMovie(title: string = this.movieTitle, page = 1): Observable<Movie[]> {
-    if (title !== '') this.setMovieTitle(title);
+    if (title === '' || title !== this.movieTitle) {
+      this.setMovieTitle(title);
+      this.setCurrentPageNumber(1);
+    }
     return this.http
       .get<Movie[]>(
         `${this._url}search/movie?api_key=${this._apiKey}&language=en-US&query=${title}&page=${page}&include_adult=false`
       )
       .pipe(
         tap((resp: any) => {
+          this.setCurrentPageNumber(page);
           this.setMaxPageNumber(resp.total_pages);
         }),
         map((resp: any) => resp.results),
@@ -42,7 +45,10 @@ export class MovieService {
       .get<Movie[]>(
         `${this._url}movie/popular?api_key=${this._apiKey}&language=en-US&page=1`
       )
-      .pipe(map((resp: any) => resp.results));
+      .pipe(
+        map((resp: any) => resp.results),
+        tap((movies) => this.setMovies(movies))
+      );
   }
 
   getMoviePosterPath(path: string) {
@@ -64,6 +70,14 @@ export class MovieService {
 
   setMaxPageNumber(page: number) {
     this.maxPageNumber.next(page);
+  }
+
+  getCurrentPageNumber() {
+    return this.currentPageNumber.asObservable();
+  }
+
+  setCurrentPageNumber(page: number) {
+    this.currentPageNumber.next(page);
   }
 
   getMovieTitle() {

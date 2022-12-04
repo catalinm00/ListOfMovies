@@ -4,9 +4,12 @@
 >
   <app-list [movies]="movies"></app-list>
   <div *ngIf="maxPages$ | async as maxPages">
-    <app-paginator
-      [maxPages]="maxPages"
-      (currentPageEmitter)="changeSearchPage($event)"
-    ></app-paginator>
+    <div *ngIf="currentPage$ | async as currentPage">
+      <app-paginator
+        [currentPage]="currentPage"
+        [maxPages]="maxPages"
+        (currentPageChange)="changeSearchPage($event)"
+      ></app-paginator>
+    </div>
   </div>
 </div>

@@ -7,8 +7,8 @@ import { PaginatorComponent } from 'src/app/features/paginator/paginator.compone
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
-  declarations: [HomeComponent, PaginatorComponent],
-  imports: [SharedModule, CoreModule, CardListModule, FontAwesomeModule],
+  declarations: [HomeComponent],
+  imports: [SharedModule, CoreModule, CardListModule, FontAwesomeModule, PaginatorComponent],
   exports: [HomeComponent],
 })
 export class HomeModule {}

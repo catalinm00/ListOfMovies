@@ -1,17 +1,13 @@
-import { Component, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
-import {
-  faArrowLeft,
-  faStarAndCrescent,
-  faXmark,
-} from '@fortawesome/free-solid-svg-icons';
-import { Subscription, Observable } from 'rxjs';
+import { faArrowLeft, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { Observable } from 'rxjs';
 import { Movie } from 'src/app/core/models/movie';
 import { MovieService } from 'src/app/shared/services/movie/movie.service';
-import { getLanguages, getMoviePosterPath } from './../../core/utils/functions';
-import { NavigationService } from './../../shared/services/navigation/navigation.service';
-import { FavouritesService } from './../../shared/services/favourites/favourites.service';
+import { getLanguages, getMoviePosterPath } from '../../core/utils/functions';
+import { NavigationService } from '../../shared/services/navigation/navigation.service';
+import { FavouritesService } from '../../shared/services/favourites/favourites.service';
 
 @Component({
   selector: 'app-details',
